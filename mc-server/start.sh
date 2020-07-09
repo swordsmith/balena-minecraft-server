@@ -34,9 +34,10 @@ cp -R /serverfiles /usr/src/
 cd /usr/src/serverfiles/
 
 if [[ -z "$(ls *.jar)" ]]; then
-  printf "%s\n" "Downloading the server file from paper-mc."
+  printf "%s\n" "Downloading and extracting the server files"
   while : ; do 
-    wget -O paper.jar -T 15 -c https://papermc.io/ci/job/Paper-1.16/lastSuccessfulBuild/artifact/paperclip.jar && break
+    # wget -O paper.jar -T 15 -c https://papermc.io/ci/job/Paper-1.16/lastSuccessfulBuild/artifact/paperclip.jar && break
+    wget -O ftb_server.zip -T 15 -c https://media.forgecdn.net/files/2962/791/ME5Server+V1.0.5.zip && unzip ftb_server.zip && break
   done
 else
   printf "%s\n" "There is already an server file. It´s called: $(ls *.jar)"
@@ -54,10 +55,11 @@ if [[ ! -z "$ENABLE_CONFIG_UPDATE" ]]; then
 fi
 
 # Get the server jar file from paper-mc
-printf "%s\n" "Downloading the server file from paper-mc."
+printf "%s\n" "Downloading and extracting the server files"
 cd /usr/src/serverfiles/
 while : ; do 
-  wget -O paper.jar -T 15 -c https://papermc.io/ci/job/Paper-1.16/lastSuccessfulBuild/artifact/paperclip.jar && break
+  # wget -O paper.jar -T 15 -c https://papermc.io/ci/job/Paper-1.16/lastSuccessfulBuild/artifact/paperclip.jar && break
+  wget -O ftb_server.zip -T 15 -c https://media.forgecdn.net/files/2962/791/ME5Server+V1.0.5.zip && unzip ftb_server.zip && break
 done
 fi
 
